@@ -19,7 +19,7 @@ const config: Config = {
 
   // Placeholder until the site is deployed; only affects canonical URLs and the sitemap.
   url: "https://ratofante.github.io",
-  baseUrl: "/escalafy-docs/",
+  baseUrl: "/escaladocs/",
   trailingSlash: false,
 
   organizationName: "Escalafy",
