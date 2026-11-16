@@ -1,0 +1,192 @@
+/*
+ * Escalafy Docs theme. The values come from escalafy-app's design system
+ * (app/styles/ds/colors.css, typography.css, radius.css): the pink brand scale, the neutral scale,
+ * Inter + JetBrains Mono, and the 8 / 12 px radii. The app ships dark only; the light theme here
+ * uses the same neutrals from the other end of the scale.
+ */
+
+:root {
+  /* Brand: pink-600 on light backgrounds (contrast), pink-500 as the lighter steps */
+  --ifm-color-primary: #c5246c;
+  --ifm-color-primary-dark: #b11f61;
+  --ifm-color-primary-darker: #a71d5b;
+  --ifm-color-primary-darkest: #8a184b;
+  --ifm-color-primary-light: #dc327d;
+  --ifm-color-primary-lighter: #e04388;
+  --ifm-color-primary-lightest: #ec3e89;
+
+  /* Neutrals, light end of the app scale */
+  --ifm-background-color: #ffffff;
+  --ifm-background-surface-color: #f7f7f7;
+  --ifm-font-color-base: #151515;
+  --ifm-font-color-secondary: #525252;
+  --ifm-color-emphasis-300: #e5e5e5;
+  --ifm-toc-border-color: #e5e5e5;
+  --ifm-hr-border-color: #e5e5e5;
+
+  /* Semantic colors used by the admonitions (In plain words = brand, Why = success, Gotcha = warning) */
+  --ifm-color-success: #2e7d32;
+  --ifm-color-success-contrast-background: #e3f1e4;
+  --ifm-color-success-dark: #2e7d32;
+  --ifm-color-warning: #9a5b00;
+  --ifm-color-warning-contrast-background: #fbeedb;
+  --ifm-color-warning-dark: #9a5b00;
+  --ifm-color-info: #0b5aa8;
+  --ifm-color-info-contrast-background: #dfeafa;
+  --ifm-color-info-dark: #0b5aa8;
+
+  /* Type */
+  --ifm-font-family-base: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ifm-font-family-monospace: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, Menlo, monospace;
+  --ifm-font-size-base: 16px;
+  --ifm-line-height-base: 1.65;
+  --ifm-heading-font-weight: 600;
+  --ifm-code-font-size: 88%;
+  --ifm-pre-font-size: 0.82rem;
+
+  /* Radii: 8 px for pieces, 12 px for panels (Tailwind lg / xl, as in the app) */
+  --ifm-global-radius: 8px;
+  --ifm-code-border-radius: 6px;
+  --ifm-pre-border-radius: 8px;
+  --ifm-alert-border-radius: 12px;
+  --ifm-card-border-radius: 12px;
+
+  --docusaurus-highlighted-code-line-bg: rgba(220, 50, 125, 0.1);
+}
+
+[data-theme='dark'] {
+  /* Brand: pink-350 reads on dark; pink-200 for the lightest steps */
+  --ifm-color-primary: #f06ba8;
+  --ifm-color-primary-dark: #ec3e89;
+  --ifm-color-primary-darker: #dc327d;
+  --ifm-color-primary-darkest: #c5246c;
+  --ifm-color-primary-light: #f98db9;
+  --ifm-color-primary-lighter: #fba9cb;
+  --ifm-color-primary-lightest: #ffc3dc;
+
+  /* Neutrals, as the app: background 950, surfaces 850/875, borders 690/650 */
+  --ifm-background-color: #080808;
+  --ifm-background-surface-color: #141414;
+  --ifm-font-color-base: #f5f5f5;
+  --ifm-font-color-secondary: #c6c6c6;
+  --ifm-color-emphasis-300: #252525;
+  --ifm-toc-border-color: #252525;
+  --ifm-hr-border-color: #252525;
+  --ifm-navbar-background-color: #080808;
+  --ifm-footer-background-color: #0f0f0f;
+  --ifm-code-background: #1a1a1a;
+  /* Code blocks take the VS Code Dark Modern editor background (src/prism-vscode.ts) */
+  --ifm-pre-background: #1f1f1f;
+
+  --ifm-color-success: #7ccc80;
+  --ifm-color-success-contrast-background: #1f3321;
+  --ifm-color-success-dark: #7ccc80;
+  --ifm-color-warning: #f0b45a;
+  --ifm-color-warning-contrast-background: #3a2d16;
+  --ifm-color-warning-dark: #f0b45a;
+  --ifm-color-info: #8ab8f5;
+  --ifm-color-info-contrast-background: #1b2a40;
+  --ifm-color-info-dark: #8ab8f5;
+
+  --docusaurus-highlighted-code-line-bg: rgba(240, 107, 168, 0.12);
+}
+
+/* Headings: the app's display scale uses tight tracking */
+h1,
+h2,
+h3 {
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.markdown h1:first-child {
+  font-size: 2.25rem;
+  letter-spacing: -0.7px;
+}
+.markdown > h2 {
+  margin-top: 3rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ifm-hr-border-color);
+  font-size: 1.5rem;
+}
+.markdown > h3 {
+  font-size: 1.15rem;
+}
+
+/* Reading column: keep prose near 70 characters on wide screens */
+.markdown p,
+.markdown li {
+  max-width: 72ch;
+}
+
+/* "In plain words" uses the tip admonition, recolored to the brand */
+.theme-admonition-tip {
+  --ifm-alert-background-color: #fbe3ee;
+  --ifm-alert-border-color: #c5246c;
+  --ifm-alert-foreground-color: #8e1a4e;
+}
+[data-theme='dark'] .theme-admonition-tip {
+  --ifm-alert-background-color: #2f1522;
+  --ifm-alert-border-color: #f06ba8;
+  --ifm-alert-foreground-color: #ffc3dc;
+}
+.theme-admonition {
+  border-left-width: 3px;
+  box-shadow: none;
+}
+.theme-admonition .admonition-heading,
+.theme-admonition > div:first-child {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.theme-admonition p {
+  color: var(--ifm-font-color-base);
+}
+
+/* Code blocks: file path and line range sit in the title bar in the monospace face */
+.theme-code-block {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  box-shadow: none;
+}
+.theme-code-block [class*='codeBlockTitle'] {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.74rem;
+  color: var(--ifm-font-color-secondary);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+
+/* Tables: the app's compact data style */
+/* Infima renders tables as display:block with overflow:auto so wide ones scroll on phones; keep that. */
+.markdown table {
+  font-size: 0.92rem;
+}
+.markdown table th {
+  background: var(--ifm-background-surface-color);
+  white-space: nowrap;
+}
+.markdown table td code {
+  white-space: nowrap;
+}
+
+/* Navbar and sidebar flush with the page background, like the app shell */
+.navbar {
+  box-shadow: none;
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+}
+.theme-doc-sidebar-container {
+  border-right-color: var(--ifm-color-emphasis-300) !important;
+}
+.menu__link--active:not(.menu__link--sublist) {
+  font-weight: 600;
+}
+
+/* Phone: slightly larger base size for reading in bed */
+@media (max-width: 600px) {
+  :root {
+    --ifm-font-size-base: 17px;
+  }
+  .markdown h1:first-child {
+    font-size: 1.85rem;
+  }
+}
