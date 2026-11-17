@@ -86,6 +86,12 @@ const config: Config = {
           position: "left",
           label: "Guides",
         },
+        {
+          type: "doc",
+          docId: "skills/index",
+          position: "left",
+          label: "Skills",
+        },
       ],
     },
     footer: {

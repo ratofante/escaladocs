@@ -15,6 +15,11 @@ Every chapter follows the same shape: a plain-words walk-through first, then the
 time with real snippets from the repo (file and line range), what is different on that page, a request
 trace, a file map and the terms.
 
+## Sections
+
+- **Guides**: chapter-based explanations of how the app works.
+- **[Skills](./skills/index.md)**: the Claude Code skills used around the app, what each one does and when to type its name.
+
 ## Guides
 
 - [Cache and page loads](./guides/cache-and-page-loads/index.md): how pages load on the

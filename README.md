@@ -22,7 +22,8 @@ docs/
       index.md                  overview + chapter list
       01-<chapter>.md …         one file per chapter; the number sets the order and is stripped from the URL
 src/css/custom.css              theme: escalafy-app design tokens (pink brand, neutral scale, Inter + JetBrains Mono)
-scripts/import-guide.mjs        imports a /write-guide HTML guide from escalafy-app/docs/guides/<slug> as Markdown
+src/prism-vscode.ts             code block colors: VS Code Dark Modern / Light Modern
+.claude/skills/write-guide/     the /write-guide skill: chapter contract, template, how to brief agents
 ```
 
 `.md` files are parsed as CommonMark (`markdown.format: 'detect'` in the config), so prose with `{`, `<`
