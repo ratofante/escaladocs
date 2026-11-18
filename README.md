@@ -23,8 +23,10 @@ docs/
       01-<chapter>.md …         one file per chapter; the number sets the order and is stripped from the URL
 src/css/custom.css              theme: escalafy-app design tokens (pink brand, neutral scale, Inter + JetBrains Mono)
 src/prism-vscode.ts             code block colors: VS Code Dark Modern / Light Modern
-.claude/skills/write-guide/     the /write-guide skill: chapter contract, template, how to brief agents
 ```
+
+Pages are written with the `/write-docs` skill of `escalafy-app` (`.claude/skills/write-docs/`), which holds
+the format (`format.md`) and the templates; run it from the app repo.
 
 `.md` files are parsed as CommonMark (`markdown.format: 'detect'` in the config), so prose with `{`, `<`
 or `$` never breaks the build; use `.mdx` only for a page that needs React.
