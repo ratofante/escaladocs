@@ -24,3 +24,6 @@ trace, a file map and the terms.
 
 - [Cache and page loads](./guides/cache-and-page-loads/index.md): how pages load on the
   `performance-staging` branch of `escalafy-app`.
+- [Creativos, phase 1](./guides/creatives-phase-1/index.md): what was built for the first release of
+  creative analytics, the decisions behind it, how a user works with the page and how to check it on
+  staging.
