@@ -34,7 +34,7 @@ This chapter has no code. It describes what is on screen, in the order a user me
 | Favoritos | The reports this person starred | Only that person |
 | Todos los reportes | The 12 ready-made reports | Every member |
 
-A card shows the report's name, one line about it, a colour mark and an icon. Hovering it shows a star. A saved report's card also has a "···" menu with "Renombrar" and "Eliminar".
+A card shows the report's name, one line about it, a colour mark and an icon. Hovering it shows a star. A saved report's card also has a "···" menu with "Renombrar" and "Eliminar reporte".
 
 The search narrows every group as the user types, and ignores accents.
 
@@ -64,8 +64,10 @@ Opening a card shows the report page. Its header has, from left to right:
 - **"Creativos /"**, which goes back to the gallery.
 - **The report's name.** It is a menu: a search, the same groups as the gallery, and "Ver todos los reportes". Choosing another report replaces everything on the page with that report's setup.
 - **"Modificado"**, which appears once the user changes anything that the report defines, with **"Restablecer"** to go back to the report as defined. Changing the page number does not count.
-- **The currency, the platform and the date range.** The platform offers one option for now.
+- **The platform.** It offers one option for now.
 - **"Guardar"**, **"Nuevo reporte"** and a **"···"** menu.
+
+Below the header, a toolbar holds the date range, "Filtro" and "Agrupar". The page has no currency control: amounts are shown in the currency the user chose elsewhere in the app.
 
 ## 3. Filters
 

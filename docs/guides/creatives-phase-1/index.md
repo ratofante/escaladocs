@@ -19,6 +19,8 @@ Chapters 3, 4 and 5 are the mechanisms, from the database up to the screen. Each
 
 Chapter 6 is for anyone about to change a behaviour: it says whether a person decided it or the build took it as a default. Chapter 7 is the checklist for the staging preview, including the one database migration.
 
+Chapter 8 is the one to read with the page open on one screen and the editor on another. It follows the page in the order you click and names the file, the request and the server code behind each part.
+
 Every mechanism opens in plain words and only then shows the code. Every snippet is copied from the branch with its file and line range.
 
 :::
@@ -42,6 +44,7 @@ Every mechanism opens in plain words and only then shows the code. Every snippet
 5. [Reports](./05-reports.md): A report as a configuration, the 12 ready-made ones in code, what an address with a report means, "Modificado", saved reports in the database, favourites and recents, and the page before the migration.
 6. [Decisions and open questions](./06-decisions-and-open-questions.md): Which behaviours a person decided, which the build took as defaults and what reversing each takes, and what is waiting for an answer.
 7. [Trying it on staging](./07-trying-it-on-staging.md): The checks before the migration, the migration with its check and undo, and the checks after it.
+8. [A tour with the code open](./08-a-tour-with-the-code-open.md): A walk through the page in the order you click, with the file that draws each part, the request it sends and the server file that answers.
 
 ---
 

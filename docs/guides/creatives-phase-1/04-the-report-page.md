@@ -242,7 +242,7 @@ A list per view was the alternative. One list means one picker, one field in a s
 
 ## 6. Totales and Diario
 
-Both views put a chart over a table of the report's rows, 10 per page. A ticked row is a series: bars in Totales, a line in Diario. At most 10; Totales starts with the first page ticked, Diario with the first 5. A ticked row keeps its colour slot. Ticks, page and search stay in memory and start over when range, currency, grouping or filters change.
+Both views put a chart over a table of the report's rows, 10 per page. A ticked row is a series: bars in Totales, a line in Diario. At most 10; Totales starts with the first page ticked, Diario with the first 5. A ticked row keeps its colour slot. Ticks, page and search stay in memory and start over when range, currency, grouping or filters change. One filter is the exception: "Nombre contiene" travels in the same parameter as the table's search, which is left out of the scope, so applying it keeps the ticks.
 
 In the code, the charts start from `reportRequestParams` too. The scope is that request without order, page and search:
 
