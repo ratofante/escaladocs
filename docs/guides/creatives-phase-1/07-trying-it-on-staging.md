@@ -43,20 +43,20 @@ Every step here must pass with the migration **not** run.
 2. The page shows one group, "Todos los reportes", with 12 cards. There is no "Recientes", "Tus reportes" or "Favoritos".
 3. "Nuevo reporte" and the stars are disabled. Hovering them says "Los reportes guardados todavía no están disponibles."
 4. There is no error message on screen. In the Network tab there is at most one request to `api/creatives/reports`, answered 503, and it is not repeated.
-5. Type "land" in the search. Only "Landings" stays. Type "zzz". The page says "Ningún reporte coincide con tu búsqueda".
+5. Type "land" in the search. Only "Top Landings" stays. Type "zzz". The page says "Ningún reporte coincide con tu búsqueda".
 
 **Opening a report.**
 
-6. Click "Mejores hooks". The address ends in `?report=mejores-hooks`.
+6. Click "Top Hooks". The address ends in `?report=top-hooks`.
 7. The first `report` request carries `sort=scroll_stopper_rate` and `format=video`. The chip "Formato Video" is shown.
-8. Reload once. The page still shows "Mejores hooks" with the same order and filter. This is the check for a bug found and fixed during the build.
+8. Reload once. The page still shows "Top Hooks" with the same order and filter. This is the check for a bug found and fixed during the build.
 9. Sort by ROAS. "Modificado" and "Restablecer" appear. The address now carries the full setup. Paste it in another tab: same page.
-10. Press "Restablecer". The address goes back to `?report=mejores-hooks` alone.
-11. Click the report's name. Choose "Landings". The view is Totales, the grouping is Landing, and nothing is left from the previous report.
+10. Press "Restablecer". The address goes back to `?report=top-hooks` alone.
+11. Click the report's name. Choose "Top Landings". The view is Totales, the grouping is Landing, and nothing is left from the previous report.
 
 **The gallery view.**
 
-12. On "Todos los creativos", check a card against the Figma: thumbnail, format badge, name, four rows of numbers, the verdict and "N ventas".
+12. On "Top Creativos", check a card against the Figma: thumbnail, format badge, name, four rows of numbers, the verdict and "N ventas".
 13. Hover a video card. The video plays inside the card. A request to the ad preview route leaves only on hover.
 14. Go to page 2. Change to 12 per page.
 
@@ -84,9 +84,9 @@ Every step here must pass with the migration **not** run.
 
 **The Limited role.**
 
-28. As a Limited member, the gallery shows 8 cards. "Más ganancia", "Listos para escalar", "A apagar" and "Ranking de la semana" are missing.
+28. As a Limited member, the gallery shows 8 cards. "Top Ganancia", "Top para escalar", "Top para apagar" and "Top de la semana" are missing.
 29. Cards have no verdict. No number about profit is offered in the picker. "Filtro" has no "Veredicto".
-30. Open `/creatives/report?report=mas-ganancia` by hand. The page shows "Todos los creativos" and no request is refused.
+30. Open `/creatives/report?report=top-ganancia` by hand. The page shows "Top Creativos" and no request is refused.
 
 **A phone.**
 
@@ -163,7 +163,7 @@ Reload the page. No deploy is needed.
 
 **Saving.**
 
-4. On "Mejores hooks", sort by ROAS and press "Guardar". Name it "QA 1". The request is a POST whose body has that name, `sort: "meta_roas"`, `date: { preset: "last14" }` and `format: ["video"]`.
+4. On "Top Hooks", sort by ROAS and press "Guardar". Name it "QA 1". The request is a POST whose body has that name, `sort: "meta_roas"`, `date: { preset: "last14" }` and `format: ["video"]`.
 5. The address becomes `?report=` followed by an id. The header says "QA 1". There is no "Modificado". "Guardar" is disabled.
 6. Try to save another report as "qa 1". The dialog says "Ya hay un reporte con ese nombre." under the field.
 7. On "QA 1", change a number. "Modificado" appears and "Guardar" is enabled. Press it. A PATCH leaves, "Modificado" goes away, and a message confirms.

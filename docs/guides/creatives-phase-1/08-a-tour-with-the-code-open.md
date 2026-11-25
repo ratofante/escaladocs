@@ -127,7 +127,7 @@ The search is local state, matched ignoring case and accents (`report-gallery.ts
 
 ## Stop 4 · Opening a report
 
-**On screen.** Click "Mejores hooks". The address becomes `/creatives/report?report=mejores-hooks`, and a moment later gains `start` and `end`.
+**On screen.** Click "Top Hooks". The address becomes `/creatives/report?report=top-hooks`, and a moment later gains `start` and `end`.
 
 **In the code.** The card links to `reportHref`, the report page with only the id (`report-list.ts · L56–L59`). The server page `app/(app)/(analytics)/creatives/report/page.tsx` reads the organization's context, the user's preferences and the saved reports at once, resolves a default range, and hands it all to the client (`L25–L54`).
 
@@ -155,7 +155,7 @@ The page state has no store. `useCreativeReportState` derives it from the addres
 
 :::
 
-**In the Network tab.** The report request of the next stop. After migration 036, also `POST /api/creatives/reports/mejores-hooks/open`, sent by `RecordOpening` once per opened report, never while the status is `unavailable` (`creatives-report.tsx · L60–L76`).
+**In the Network tab.** The report request of the next stop. After migration 036, also `POST /api/creatives/reports/top-hooks/open`, sent by `RecordOpening` once per opened report, never while the status is `unavailable` (`creatives-report.tsx · L60–L76`).
 
 More: [Reports](./05-reports.md#3-the-open-report-and-the-address).
 
@@ -385,7 +385,7 @@ More: [The report data](./03-the-report-data.md#7-filters-the-daily-series-and-t
 
 _Needs migration 036. Before it, "Guardar" is disabled and says why._
 
-**On screen.** On "Mejores hooks", change the order, press "Guardar" and name it in "Guardar como reporte nuevo". The address changes to a new id. In the gallery, star a card.
+**On screen.** On "Top Hooks", change the order, press "Guardar" and name it in "Guardar como reporte nuevo". The address changes to a new id. In the gallery, star a card.
 
 **In the code.** What "Guardar" does depends on the open report:
 

@@ -53,6 +53,7 @@ One rule sits above all four: a test in the repository wins over any of them. Th
 | Charts | Totales and Diario share a table below the chart. A ticked row is a series. At most 10. | Rodrigo, from the Figma | A separate selection screen. |
 | Reports | 12 ready-made reports, read-only. Saved reports are shared with the organization. Favourites and recents belong to each user. | Rodrigo | Personal saved reports. |
 | First release | The report page, saving reports and the gallery of reports. | Rodrigo | Shipping the report page alone. |
+| Ready-made report names | The twelve take the ticket's "Top …" names, and their ids follow (`top-creativos` … `top-headlines`). "Top Headlines" (grouped by headline, sorted by CTR) is the twelfth report. Grouping by format stays in "Agrupar". Favourites and recents of the old ids are deleted by migration 037. | Rodrigo, 2026-11-25 | Keeping the old ids under new names, and "Formatos" or "Mejores titulares" as the twelfth report. |
 
 ## 3. Defaults taken during the build
 
@@ -61,12 +62,11 @@ Nobody confirmed these. Each one was chosen because it is cheap to reverse.
 | Topic | Default in the code | Reversing it takes |
 | --- | --- | --- |
 | Limited role and the verdict | A member with the Limited role gets no verdict, no break-even figure and no estimated profit. Those three would let a media buyer work out the store's margin. | One condition in the report route and in the card. |
-| Limited role and ready-made reports | Four ready-made reports are hidden for that role, because each sorts by profit or filters by verdict: "Más ganancia", "Listos para escalar", "A apagar", "Ranking de la semana". | One rule in the list of ready-made reports. "Ranking de la semana" could stay, ranked by spend. |
+| Limited role and ready-made reports | Four ready-made reports are hidden for that role, because each sorts by profit or filters by verdict: "Top Ganancia", "Top para escalar", "Top para apagar", "Top de la semana". | One rule in the list of ready-made reports. "Top de la semana" could stay, ranked by spend. |
 | Limited role and saved reports | A saved report that uses profit or verdict is shown to that role with those parts removed. The member cannot overwrite it, and can save a copy. | A route check. |
 | Who edits a saved report | Any member who can open the page may rename, overwrite or delete any saved report of the organization. | A route check. The creator is already stored, so no migration. |
 | Spanish wording | Tú, not voseo. A repository test forbids voseo, so this is not a preference. | Changing the test and every string. |
 | Report card | One muted line of description and three grey placeholder tiles. The ticket says no description. The Figma shows the report's top three creatives. | Removing a line. Real thumbnails need one batched request for all cards. |
-| The twelfth report | "Formatos", as the server defines it. The ticket's open point proposes "Mejores titulares". | Editing one definition. |
 | Recents | 8 are stored, 4 are shown. | A constant. |
 | Saved report's range | A preset such as "últimos 14 días" stays relative. A custom range stays fixed. | A line in the function that builds the saved configuration. |
 | Saved report's colour and icon | Derived from the report's id. The ticket proposes a colour assigned on creation and one generic icon. | A column and a picker. |
@@ -83,7 +83,7 @@ Nobody confirmed these. Each one was chosen because it is cheap to reverse.
 
 :::warning[Gotcha]
 
-Two of the twelve ready-made reports have no agreed thresholds: "Listos para escalar" and "A apagar". They ship with a definition that filters by status and verdict only, and their cards say so. A reader who expects a minimum spend will not find one in the code.
+Two of the twelve ready-made reports have no agreed thresholds: "Top para escalar" and "Top para apagar". They ship with a definition that filters by status and verdict only, and their cards say so. A reader who expects a minimum spend will not find one in the code.
 
 :::
 
@@ -91,8 +91,7 @@ Two of the twelve ready-made reports have no agreed thresholds: "Listos para esc
 
 - Does a Limited member see the verdict? The default says no.
 - What does a card look like for a grouping that is not a creative? The build follows his own proposal. He has not seen it built.
-- "Formatos" or "Mejores titulares" as the twelfth report.
-- The thresholds of "Listos para escalar" and "A apagar".
+- The thresholds of "Top para escalar" and "Top para apagar".
 - The "select all" checkbox in the table header.
 - Up and down buttons in place of drag handles.
 - On a grouped card, "N creativos" replaces "N ventas". Should both show?

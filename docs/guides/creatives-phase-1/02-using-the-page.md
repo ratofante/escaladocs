@@ -42,18 +42,18 @@ The 12 ready-made reports:
 
 | Report | The question it answers |
 | --- | --- |
-| Todos los creativos | Everything that ran, by spend. |
-| Más ganancia | Which creatives leave the most estimated profit. |
-| Más inversión | Where the budget went. |
-| Mejores hooks | Which videos stop the scroll in the first 3 seconds. |
-| Mejor retención | Which videos keep people watching after those 3 seconds. |
-| Mejores copies | Which ad texts get the most clicks, across the creatives that use them. |
-| Lanzamientos | What was launched in the last 30 days, by spend. |
-| Listos para escalar | Active creatives the verdict calls profitable, best return first. |
-| A apagar | Active creatives the verdict calls unprofitable, biggest spend first. |
-| Ranking de la semana | The last 7 days ranked by estimated profit, as a bar chart. |
-| Landings | Spend and return by the page the ad sends people to, as a bar chart. |
-| Formatos | Video against image against carousel, as a bar chart. |
+| Top Creativos | Everything that ran, by spend. |
+| Top Ganancia | Which creatives leave the most estimated profit. |
+| Top Inversión | Where the budget went. |
+| Top Hooks | Which videos stop the scroll in the first 3 seconds. |
+| Top Retención | Which videos keep people watching after those 3 seconds. |
+| Top Copies | Which ad texts get the most clicks, across the creatives that use them. |
+| Top Lanzamientos | What was launched in the last 30 days, by spend. |
+| Top para escalar | Active creatives the verdict calls profitable, best return first. |
+| Top para apagar | Active creatives the verdict calls unprofitable, biggest spend first. |
+| Top de la semana | The last 7 days ranked by estimated profit, as a bar chart. |
+| Top Landings | Spend and return by the page the ad sends people to, as a bar chart. |
+| Top Headlines | Which headlines get the most clicks, across the creatives that use them. |
 
 A member with the Limited role sees 8 of them. The other four depend on profit or on the verdict, which that role does not receive.
 

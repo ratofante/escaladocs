@@ -62,9 +62,9 @@ A hand-picked range that equals a preset is saved as that preset. Pick by hand e
 
 ## 2. Ready-made reports live in code
 
-The twelve ready-made reports are definitions in code, each with a fixed id such as `mejores-hooks`. By default a report covers the last 14 days, groups by creative, sorts descending and shows the gallery.
+The twelve ready-made reports are definitions in code, each with a fixed id such as `top-hooks`. By default a report covers the last 14 days, groups by creative, sorts descending and shows the gallery.
 
-In the code, `CREATIVE_READY_MADE_REPORTS` is a read-only array (`report-config.schema.ts · L224–L294`) built by `report`, which fills those defaults (`L200–L214`). The ids must stay fixed: favourites and recents point at them (`L216–L223`). "Listos para escalar" (active, profitable, by ROAS) and "A apagar" (active, unprofitable, by spend) ship without their spend threshold, which is not defined yet (`L260–L273`). A change or delete of a ready-made id answers 403 `read_only_report`, and reading one 404 (`app/api/creatives/reports/[id]/route.ts · L26–L27`, `L37`, `L57`, `L92`).
+In the code, `CREATIVE_READY_MADE_REPORTS` is a read-only array (`report-config.schema.ts · L227–L294`) built by `report`, which fills those defaults (`L200–L214`). The ids must stay fixed: favourites and recents point at them (`L216–L223`). "Top para escalar" (active, profitable, by ROAS) and "Top para apagar" (active, unprofitable, by spend) ship without their spend threshold, which is not defined yet (`L260–L273`). A change or delete of a ready-made id answers 403 `read_only_report`, and reading one 404 (`app/api/creatives/reports/[id]/route.ts · L26–L27`, `L37`, `L57`, `L92`).
 
 `components/creatives/reports/ready-made-reports.ts` adds an icon and a palette colour per id (`L40–L54`). Names and descriptions are message keys, `creatives.reports.names.<id>` and `creatives.reports.descriptions.<id>` (`components/creatives/reports/report-list.ts · L66–L81`). `ready-made-reports.ts` also decides what the Limited role sees:
 
@@ -79,17 +79,17 @@ export function isReportAvailable(config: CreativeReportConfig, isLimited: boole
 }
 ```
 
-A Limited member sees eight (`ready-made-reports.ts · L72–L79`): "Más ganancia" and "Ranking de la semana" sort by estimated profit, "Listos para escalar" and "A apagar" filter by verdict. Reports that only list estimated profit lose it on load (`report-state.ts · L459–L462`). An address naming a hidden report opens the plain page, because `readyMadeDefinition` does not know the id (`ready-made-reports.ts · L81–L87`).
+A Limited member sees eight (`ready-made-reports.ts · L72–L79`): "Top Ganancia" and "Top de la semana" sort by estimated profit, "Top para escalar" and "Top para apagar" filter by verdict. Reports that only list estimated profit lose it on load (`report-state.ts · L459–L462`). An address naming a hidden report opens the plain page, because `readyMadeDefinition` does not know the id (`ready-made-reports.ts · L81–L87`).
 
 :::info[Why this way]
 
-Hiding beat stripping: "Más ganancia" without its sort would be "Más inversión" under the wrong name. Code beat a table seeded by a migration: each definition is typed and ships with the page that reads it.
+Hiding beat stripping: "Top Ganancia" without its sort would be "Top Inversión" under the wrong name. Code beat a table seeded by a migration: each definition is typed and ships with the page that reads it.
 
 :::
 
 ## 3. The open report and the address
 
-`/creatives/report?report=mejores-hooks` names the open report and means "as defined", the range resolved on the day it opens. After a change, the page writes its whole state next to the report, so a copied link shows that page. The switcher and "Restablecer" push the plain address again.
+`/creatives/report?report=top-hooks` names the open report and means "as defined", the range resolved on the day it opens. After a change, the page writes its whole state next to the report, so a copied link shows that page. The switcher and "Restablecer" push the plain address again.
 
 In the code, the parameter is `CREATIVE_REPORT_PARAM` (`report-state.ts · L129`). The page's defaults carry `definition`, which turns an id into a configuration: ready-made first, then the saved reports in the browser's cache (`components/creatives/creatives-report.tsx · L91–L101`). `stateFromAddress` picks the reading:
 
@@ -260,12 +260,12 @@ As an error, the 503 would be retried and shown as a failure while nothing is br
 
 ## Follow a request
 
-A full reader opens "Mejores hooks" from the gallery, sorts by ROAS, presses "Guardar" and names the report. The user's side is in [Using the page](./02-using-the-page.md).
+A full reader opens "Top Hooks" from the gallery, sorts by ROAS, presses "Guardar" and names the report. The user's side is in [Using the page](./02-using-the-page.md).
 
-1. **Browser** · The card links to `reportHref('mejores-hooks')`.
+1. **Browser** · The card links to `reportHref('top-hooks')`.
 2. **Server page** · Reads the saved reports' snapshot with `loadSavedReports` and renders the page with it.
 3. **Browser** · `stateFromAddress` finds `report` and no `sort`, so `stateFromReportConfig` loads the definition: videos only, by Thumbstop, the last 14 days. The date selector then writes `start` and `end`; the reading does not change.
-4. **Browser** · `RecordOpening` sends `POST /api/creatives/reports/mejores-hooks/open` and moves the report to the front of the cached recents.
+4. **Browser** · `RecordOpening` sends `POST /api/creatives/reports/top-hooks/open` and moves the report to the front of the cached recents.
 5. **Browser** · The user sorts by ROAS. `serializeReportState` writes the whole state with `sort=meta_roas` next to `report`. `isReportModified` turns true: "Modificado" and "Restablecer" show.
 6. **Browser** · "Guardar": `saveModeOf` answers `new` for a ready-made report, and `saveAsNew` opens the name dialog with `reportConfigFromState`, dated `{ preset: 'last14' }`.
 7. **Route** · `POST /api/creatives/reports` with `{ name, config }`: `authorizeSavedReportsRequest`, the body schema, the Limited check, `createCreativeSavedReport`. 201 with the report, or 409 `name_taken` under the field.

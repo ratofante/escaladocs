@@ -29,11 +29,17 @@ Every mechanism opens in plain words and only then shows the code. Every snippet
 
 | | |
 | --- | --- |
-| Built | Nine changes, one commit each, all pushed to the branch. |
-| Automated checks | Passing: the feature's tests, types, the hardcoded-organization check, formatting. |
-| Seen in a browser with real data | **Not yet.** The first look is on the staging preview (chapter 7). |
-| Database migration | **Written, not run.** Until it runs, saving reports is switched off and the rest works. |
+| Built | Eleven changes, one commit each, all pushed to the branch. Changes 10 and 11 (2026-11-25) renamed the twelve reports to the ticket's "Top …" list and put the page on the day cache with thumbnails on the gallery's cards. |
+| Automated checks | Passing: the feature's tests, types, the hardcoded-organization check, formatting; the live comparison of stored days against the live report (worst relative difference 8e-15). |
+| Seen in a browser with real data | On the staging preview since 2026-11-23 (changes 1 to 9). Changes 10 and 11: not yet. |
+| Database migrations | 036 (saved reports) ran on 2026-11-23. 037 (deletes favourites and recents that point at an old report id) is written and not run. |
 | Production | Not shipped. It ships through `main`, on someone else's timing. |
+
+:::caution[What changed after this guide was written]
+
+The guide describes the page as built on 2026-11-20. Two later changes are not yet in chapters 3, 4 and 8: the twelve reports are now named "Top Creativos", "Top Ganancia", … and "Top Headlines" replaces "Formatos" (chapters 2, 5, 6 and 7 are updated); and the report, daily and options routes answer from **stored days** in Postgres (the app's day cache) instead of reading ClickHouse on every request, with the gallery's cards showing each report's top three thumbnails from a stored list the server page puts in the HTML. The current description of that data path is `docs/features/creatives/README.md` and the "Ejemplo resuelto: Creativos" section of `docs/features/client-cache/README.md` in the app repo.
+
+:::
 
 ## Chapters
 
